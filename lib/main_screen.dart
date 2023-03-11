@@ -19,7 +19,33 @@ class MainScreen extends StatelessWidget{
                   title: "Dashboard",
                   svgSrc: "./assets/icons/menu_dashbord.svg",
                   press:(){},
-                  ),  
+                  ),
+                  DrawerListTile(
+                  title: "Produits",
+                  svgSrc: "./assets/icons/menu_dashbord.svg",
+                  press:(){},
+                  ),
+                  DrawerListTile(
+                  title: "Commandes",
+                  svgSrc: "./assets/icons/menu_dashbord.svg",
+                  press:(){},
+                  ),
+                  DrawerListTile(
+                  title: "Clients",
+                  svgSrc: "./assets/icons/menu_dashbord.svg",
+                  press:(){},
+                  ),
+                  DrawerListTile(
+                  title: "Stock",
+                  svgSrc: "./assets/icons/menu_dashbord.svg",
+                  press:(){},
+                  ),
+                  DrawerListTile(
+                  title: "Historique",
+                  svgSrc: "./assets/icons/menu_dashbord.svg",
+                  press:(){},
+                  ),
+                  
                 ],
               ),
                 ),

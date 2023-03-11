@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart' show GoogleFonts;
 import 'constants.dart';
 import 'main_screen.dart';
-import 'chchwiya labes w nga '
 
 void main() {
   runApp(MyApp());
