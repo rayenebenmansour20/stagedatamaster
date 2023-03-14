@@ -1,10 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class Sidemenu extends StatelessWidget {
+class Sidemenu extends StatefulWidget {
   const Sidemenu({
-    super.key,
-  });
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  _SidemenuState createState() => _SidemenuState();
+}
+
+class _SidemenuState extends State<Sidemenu> {
+  int _selectedIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -13,48 +20,90 @@ class Sidemenu extends StatelessWidget {
         child: Column(
           children: [
             DrawerHeader(
-              child: Image.asset("./assets/images/logo.png") ,
+              child: Image.asset("./assets/images/logo.png"),
             ),
             DrawerListTile(
               title: "Dashboard",
               svgSrc: "./assets/icons/home.svg",
-              press:(){},
+              press: () {
+                setState(() {
+                  _selectedIndex = 0;
+                });
+              },
+              selected: _selectedIndex == 0,
             ),
             DrawerListTile(
               title: "Produits",
               svgSrc: "./assets/icons/product.svg",
-              press:(){},
+              press: () {
+                setState(() {
+                  _selectedIndex = 1;
+                });
+              },
+              selected: _selectedIndex == 1,
             ),
             DrawerListTile(
               title: "Commandes",
               svgSrc: "./assets/icons/order.svg",
-              press:(){},
+              press: () {
+                setState(() {
+                  _selectedIndex = 2;
+                });
+              },
+              selected: _selectedIndex == 2,
             ),
             DrawerListTile(
               title: "Clients",
               svgSrc: "./assets/icons/useravatar.svg",
-              press:(){},
+              press: () {
+                setState(() {
+                  _selectedIndex = 3;
+                });
+              },
+              selected: _selectedIndex == 3,
             ),
             DrawerListTile(
               title: "Stock",
               svgSrc: "./assets/icons/icons8-box-128.svg",
-              press:(){},
+              press: () {
+                setState(() {
+                  _selectedIndex = 4;
+                });
+              },
+              selected: _selectedIndex == 4,
             ),
-            DrawerListTile(  
+            DrawerListTile(
               title: "Historique",
               svgSrc: "./assets/icons/menu_dashbord.svg",
-              press:(){},
+              press: () {
+                setState(() {
+                  _selectedIndex = 5;
+                });
+              },
+              selected: _selectedIndex == 5,
             ),
-            SizedBox(height:180),
+            SizedBox(height: 180),
             DrawerListTile(
               title: "Paramètres",
               svgSrc: "./assets/icons/menu_dashbord.svg",
-              press:(){},
+              press: () {
+                setState(() {
+                  _selectedIndex = 6;
+                });
+              },
+              selected: _selectedIndex == 6,
+
             ),
             DrawerListTile(
               title: "Déconnexion",
               svgSrc: "./assets/icons/menu_dashbord.svg",
-              press:(){},
+              press: () {
+                setState(() {
+                  _selectedIndex = 7;
+                });
+              },
+              selected: _selectedIndex == 7,
+
             ),
           ],
         ),
@@ -63,50 +112,36 @@ class Sidemenu extends StatelessWidget {
   }
 }
 
-class DrawerListTile extends StatefulWidget {
+class DrawerListTile extends StatelessWidget {
   const DrawerListTile({
     Key? key,
-    required this.title, required this.svgSrc,
-    required this.press, 
+    required this.title,
+    required this.svgSrc,
+    required this.press,
+    this.selected = false,
   }) : super(key: key);
 
-  final String title,svgSrc;
+  final String title, svgSrc;
   final VoidCallback press;
-
-  @override
-  _DrawerListTileState createState() => _DrawerListTileState();
-}
-
-class _DrawerListTileState extends State<DrawerListTile> {
-  bool _hovering = false;
+  final bool selected;
 
   @override
   Widget build(BuildContext context) {
-    return MouseRegion(
-      onEnter: (event) {
-        setState(() {
-          _hovering = true;
-        });
-      },
-      onExit: (event) {
-        setState(() {
-          _hovering = false;
-        });
-      },
+    return InkWell(
+      onTap: press,
       child: Container(
-        color: _hovering ? Colors.white : null,
+        color: selected ? Colors.white : null,
         child: ListTile(
-          onTap: widget.press,
           horizontalTitleGap: 0.0,
           leading: SvgPicture.asset(
-            widget.svgSrc,
-            color: _hovering ? Colors.blue : Colors.white,
+            svgSrc,
+            color: selected ? Colors.blue : Colors.white,
             height: 20,
           ),
           title: Text(
-            widget.title,
+            title,
             style: TextStyle(
-              color: _hovering ? Colors.blue : Colors.white,
+              color: selected ? Colors.blue : Colors.white,
             ),
             textAlign: TextAlign.left,
           ),
