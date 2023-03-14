@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart' show GoogleFonts;
 import 'constants.dart';
+import 'responsive.dart';
 import 'main_screen.dart';
 
 void main() {
