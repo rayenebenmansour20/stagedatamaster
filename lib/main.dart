@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart' show GoogleFonts;
+import 'package:venteassister/loginpage/login_page.dart';
 import 'constants.dart';
 import 'responsive.dart';
 import 'main_screen.dart';
+import 'loginpage/login_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -21,7 +23,7 @@ class MyApp extends StatelessWidget {
             .apply(bodyColor: Colors.white),
         canvasColor: secondaryColor,
       ),
-      home:  MainScreen(),
+      home:  Loginpage(),
     );
   }
 }
