@@ -203,22 +203,9 @@ class _LoginpageState extends State<Loginpage> {
                         
                       ),
                       SizedBox(height: height * 0.03),
-                      Align(
-                        alignment: Alignment.centerRight,
-                        child: TextButton(
-                          onPressed: (){},
-                          child: Text('Forgot Password?',
-                            style: ralewayStyle.copyWith(
-                              fontSize: 12.0,
-                              color: appcolors.mainBlueColor,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                        ),
-                      ),
                       SizedBox(height: height * 0.05),
                       Material(
-                        color: Colors.transparent,
+                        color: Color.fromARGB(0, 236, 232, 232),
                         child: InkWell(
                           onTap: (){
                             Navigator.push(context
@@ -226,21 +213,45 @@ class _LoginpageState extends State<Loginpage> {
                           },
                           borderRadius: BorderRadius.circular(16.0),
                           child: Ink(
-                            padding: const EdgeInsets.symmetric(horizontal: 70.0, vertical: 18.0),
+                            height: 50,
+                            width:width,
+                            padding: const EdgeInsets.symmetric(horizontal: 70.0, vertical: 15.0),
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(16.0),
                               color: secondaryColor,
                             ),
+                            child: Center(
                             child: Text('LOGIN',
                               style: ralewayStyle.copyWith(
-                                fontWeight: FontWeight.w700,
+                                fontWeight: FontWeight.w800,
                                 color: appcolors.whiteColor,
-                                fontSize: 16.0,
+                                fontSize: 18.0,
                               ),
+                               ),
                             ),
                           ),
-                        ),  
+                        ),
                     ),
+                    SizedBox(height:height*0.1),
+                   Center(
+                     child: Row(
+                     mainAxisAlignment: MainAxisAlignment.center,
+                     children: [
+                              Text(
+                            'Copyright 2023',
+                             style: TextStyle(
+                             color: Colors.black,
+                               ),
+                                ),
+                                 SizedBox(width:10,),
+                             Image.asset(
+                               'assets/images/datamasterpetitlogo.png', // replace with your logo image path
+                                width: 100,
+                                height: 100,
+                                   ),
+                                ],
+                              ),
+                            ),
                     ],
                   ),
                 ),

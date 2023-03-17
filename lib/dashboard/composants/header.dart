@@ -12,7 +12,7 @@ class Header extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
+      /*decoration: BoxDecoration(
         boxShadow: [
           BoxShadow(
           color:Colors.grey.withOpacity(0.5),
@@ -22,12 +22,13 @@ class Header extends StatelessWidget {
           ),
         ],
         color:Colors.grey[200],        
-      ),
+      ),*/
       child: Row(
         children: [
           Expanded(
             child:SearchField()),
-            Profilcard()
+            notificationicon(),
+            //Profilcard(),
         ],
     
       ),
@@ -46,16 +47,17 @@ class Profilcard extends StatelessWidget {
     return Container(
       margin: EdgeInsets.only(left: defaultPadding),
       padding:EdgeInsets.symmetric(horizontal: defaultPadding,vertical: defaultPadding/2),
-      decoration: BoxDecoration(color:secondaryColor,borderRadius: const BorderRadius.all(Radius.circular(10)),
+      decoration: BoxDecoration(color:Colors.white,borderRadius: const BorderRadius.all(Radius.circular(10)),
       border: Border.all(color:Colors.white10)
       ), 
       child: Row(children: [
-        Image.asset("./assets/images/blackman.png",height: 38,),
+        Image.asset("./assets/images/blackman.png",height: 46,),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal:defaultPadding/2),
-          child: Text("Rayeneben"), 
+          child: Text("Rayeneben",
+          style:TextStyle(color:Colors.blue)), 
         ),
-        Icon(Icons.keyboard_arrow_down)
+        Icon(Icons.keyboard_arrow_down,color:Colors.blue)
       ],),
     );
   }
@@ -71,7 +73,8 @@ class SearchField extends StatelessWidget {
     return TextField(
       decoration:InputDecoration(
       hintText: "Search",  
-      fillColor: secondaryColor,
+      hintStyle: TextStyle(color:Colors.blue),
+      fillColor: Colors.white ,
       filled:true,
       border:OutlineInputBorder(borderSide: BorderSide.none,borderRadius: const BorderRadius.all(Radius.circular(10))),
     suffixIcon:InkWell(
@@ -80,7 +83,7 @@ class SearchField extends StatelessWidget {
         padding: EdgeInsets.all(defaultPadding*0.75),
         margin:EdgeInsets.symmetric(horizontal: defaultPadding/2),
       decoration: BoxDecoration(
-        color:primaryColor,
+        color:Colors.blue,
         borderRadius:const BorderRadius.all(Radius.circular(10)),
         ),
       child:SvgPicture.asset("./assets/icons/Search.svg")
@@ -90,3 +93,42 @@ class SearchField extends StatelessWidget {
     );
   }
 }
+
+
+class notificationicon extends StatelessWidget{
+  const notificationicon({
+    super.key,
+    int counter =0,
+  });
+
+
+  @override
+  Widget build(BuildContext context){
+    return Row(
+      children: <Widget>[
+      IconButton(
+        onPressed: (){
+          debugPrint('Notificationbar');
+        } ,
+        icon:Stack(
+          children:<Widget>[
+            CircleAvatar(
+            radius:100,  
+            backgroundColor:Colors.white,
+            child:Icon(Icons.notifications,
+            color:Colors.black)),
+            Positioned(
+              left:16,
+              bottom: 15,
+              child: Icon(Icons.brightness_1 ,
+              color:Colors.red,
+              size:9))
+          ]
+        ),), 
+
+
+      ],
+    );
+  }
+}
+  

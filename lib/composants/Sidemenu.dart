@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class Sidemenu extends StatefulWidget {
@@ -15,12 +16,18 @@ class _SidemenuState extends State<Sidemenu> {
 
   @override
   Widget build(BuildContext context) {
+    //return LayoutBuilder(
+     // BuildContext context, BoxConstraints Constraints)
+    // pour que le drawer deffile on doit ajouter return scaffold et drawer:Drawer
     return Drawer(
       child: SingleChildScrollView(
-        child: Column(
+        child: Column(  
           children: [
             DrawerHeader(
-              child: Image.asset("./assets/images/logo.png"),
+              child: Image.asset("./assets/images/datamasterlogo.png",
+              width:100,
+              height:100,),
+
             ),
             DrawerListTile(
               title: "Dashboard",

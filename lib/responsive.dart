@@ -40,4 +40,6 @@ class ResponsiveWidget extends StatelessWidget {
       },
     );
   }
+
+  static isDesktop(BuildContext context) {}
 }
